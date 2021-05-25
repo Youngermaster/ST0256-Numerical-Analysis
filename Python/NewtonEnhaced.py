@@ -6,11 +6,11 @@ def f(x):
 
 
 def df(x):
-    return 3(x**2) - (2*x)
+    return (3*(x**2)) - (2*x)
 
 
 def dp(x):
-    return 6 * x - 10
+    return 6 * x - 2
 
 
 x0 = -20
