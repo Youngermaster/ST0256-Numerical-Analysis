@@ -21,15 +21,17 @@ double derivFunc(double x) {
 
 // Function to find the root
 void newtonRaphson(double x) {
+    int iterations(0);
     double h = func(x) / derivFunc(x);
     while (abs(h) >= EPSILON) {
         h = func(x) / derivFunc(x);
 
         // x(i+1) = x(i) - f(x) / f'(x)
-        x = x - h;
+        x -= h;
+        iterations++;
     }
-
-    cout << "The value of the root is : " << x;
+    cout << "Iterations: " << iterations << endl;
+    cout << "The value of the root is : " << x << endl;
 }
 
 // Driver program to test above
