@@ -2,11 +2,11 @@ import numpy as np
 
 
 def f(x):
-    return (x ** 3) - 5 * (x ** 2) + 7 * x - 3
+    return (x ** 3) - (x ** 2) + 2
 
 
 def df(x):
-    return 3 * (x ** 2) - 10 * x + 7
+    return 3(x**2) - (2*x)
 
 
 def dp(x):
