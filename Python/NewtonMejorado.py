@@ -13,7 +13,7 @@ def dp(x):
     return 6 * x - 10
 
 
-x0 = 0
+x0 = -20
 tol = 0.0000001
 error = 100
 nmax = 100
