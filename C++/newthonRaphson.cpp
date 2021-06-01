@@ -27,10 +27,10 @@ void newtonRaphson(double x) {
         error += x;
         x -= h;
         error = abs(x - error);
+        cout << "Error: " << error << endl;
         iterations++;
     }
     cout << "Iterations: " << iterations << endl;
-    cout << "Error: " << error << endl;
     cout << "The value of the root is : " << x << endl;
 }
 
