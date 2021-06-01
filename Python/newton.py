@@ -6,7 +6,7 @@ import sympy as sp
 ecuacion = input("Ingrese la ecuacion \n ")
 x0 = float(input("Ingrese el punto inicial"))
 tol = float(input("Ingrese la tolerancia"))
-nmax = float(input("ingrese el numero maximo de iteracciones")
+nmax = float(input("ingrese el numero maximo de iteracciones"))
 
 
 x = sp.Symbol('x')

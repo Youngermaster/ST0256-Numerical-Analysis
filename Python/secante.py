@@ -8,16 +8,16 @@ x1 = float(input("Ingrese el segundo punto \n "))
 tol = float(input("Ingrese la tolerancia \n "))
 nmax = float(input("Ingrese el numero maximo de iteracciones \n "))
 
-x = sp.Symbol('x')  
+x = sp.Symbol('x')
 
-#Funcion que se va evaluar
+# Funcion que se va evaluar
 def f(x):
     return eval(ecuacion)
 
 
 # Derivada de la funcion a evaluar
 def dev():
-     return sp.diff(ecuacion,x)
+    return sp.diff(ecuacion, x)
 
 # Funcion que evalua la derivda de la funcion
 def df(x):

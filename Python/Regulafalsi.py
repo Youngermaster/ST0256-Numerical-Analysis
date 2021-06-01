@@ -13,10 +13,9 @@ op = float(
     )
 )
 
-# Funcion a evaluar 
+# Funcion a evaluar
 def f(x):
     return eval(ecuacion)
-
 
 
 # Asignacion de los valores de los intervalos
@@ -33,6 +32,7 @@ def fe(a, b, op):
     elif op == 3:
         return abs(b - a) / b
 
+
 # Error y numero inicial de iteraciones
 error = 100
 niter = 0
@@ -41,7 +41,6 @@ niter = 0
 # Evaluacion de las funciones en los extremos de los intervalos
 fa = f(aValor)
 fb = f(bValor)
-
 
 
 # Valor medio

@@ -2,7 +2,6 @@ import numpy as np
 from math import *
 
 
-
 ecuacion = input("Ingrese la función a resolver: ")
 aValor = float(input("Ingrese el extremo inferior del intervalo: "))
 bValor = float(input("Ingrese el extremo superior del intervalo: "))

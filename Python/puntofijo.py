@@ -2,8 +2,6 @@ import numpy as np
 from math import *
 
 
-
-
 # Entradas
 ecuacion = input("Ingrese la ecuacion \n")
 p0 = float(input("Ingrese el punto inicial \n"))
