@@ -15,16 +15,17 @@ x = sp.Symbol('x')
 # Funcion a evaluar
 def f(x):
     return eval(ecuacion)
-print(f(1))
+
+
+# Evaluacionde la derivada de la funcion
 def df(x):
     return eval(str(dev()))
 
-
+# Derivada de la funcion a evaluar
 def dev():
      return sp.diff(ecuacion,x)
 
-# x0 = 22
-# tol = 0.0000001
+
 error = 100
 nmax = 100
 ni = 0
