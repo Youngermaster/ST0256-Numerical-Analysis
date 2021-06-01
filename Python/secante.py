@@ -1,7 +1,7 @@
 import numpy as np
 import sympy as sp
 
-
+# Parametros que se reciben para la ejecucion
 ecuacion = input("Ingrese la ecuacion \n ")
 x0 = float(input("Ingrese el punto inicial \n "))
 x1 = float(input("Ingrese el segundo punto \n "))
@@ -10,18 +10,21 @@ nmax = float(input("Ingrese el numero maximo de iteracciones \n "))
 
 x = sp.Symbol('x')  
 
+#Funcion que se va evaluar
 def f(x):
     return eval(ecuacion)
 
-  
+
+# Derivada de la funcion a evaluar
 def dev():
      return sp.diff(ecuacion,x)
 
+# Funcion que evalua la derivda de la funcion
 def df(x):
     return eval(dev())
 
 
-
+# error y iteracion inicial
 error = 100
 ni = 0
 
@@ -29,6 +32,7 @@ ni = 0
 print("# iter\t\t x \t\t f(x) \t\t error")
 print("{0:d}\t{1:8.6f}\t{2:8.6f}\t{3:8.6f}".format(ni, x1, f(x1), error))
 
+# Ejecucion del proceso
 while error > tol and ni < nmax:
     x2 = x1 - (f(x1) * (x1 - x0)) / (f(x1) - f(x0))
     ni += 1
