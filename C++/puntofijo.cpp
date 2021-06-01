@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
-#define e 2.718281828
 #include <cstdlib>
+#define e 2.718281828
 
 double fun(double);
 

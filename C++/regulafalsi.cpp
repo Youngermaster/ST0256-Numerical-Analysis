@@ -1,6 +1,5 @@
 
 #include <math.h>
-
 #include <iomanip>
 #include <iostream>
 
@@ -9,7 +8,7 @@
  Change this equation to solve another problem.
 */
 
-#define f(x) cos(x) - x* exp(x)
+#define f(x) cos(x) - x * exp(x)
 
 using namespace std;
 
