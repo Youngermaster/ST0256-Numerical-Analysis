@@ -1,17 +1,29 @@
 import numpy as np
 from math import *
+import sympy as sp
+
+
+ecuacion = input("Ingrese la ecuacion \n ")
+x0 = float(input("Ingrese el punto inicial"))
+tol = float(input("Ingrese la tolerancia"))
+
+
+
+x = sp.Symbol('x')
 
 
 def f(x):
-    return 2200 * np.log(160000 / (160000 - 2680 * x)) - 9.81 * x
-
-
+    return eval(ecuacion)
+print(f(1))
 def df(x):
-    return (147400 / (-67 * x + 4000)) - 9.81
+    return eval(str(dev()))
 
 
-x0 = 22
-tol = 0.0000001
+def dev():
+     return sp.diff(ecuacion,x)
+
+# x0 = 22
+# tol = 0.0000001
 error = 100
 nmax = 100
 ni = 0
@@ -26,3 +38,6 @@ while error > tol and ni < nmax:
     error = abs(x1 - x0)
     print("{0:d}\t{1:8.6f}\t{2:8.4f}\t{3:8.6f}".format(ni, x0, x1, error))
     x0 = x1
+
+
+

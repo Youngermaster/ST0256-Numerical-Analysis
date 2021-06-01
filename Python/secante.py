@@ -1,19 +1,28 @@
 import numpy as np
+import sympy as sp
 
+
+ecuacion = input("Ingrese la ecuacion \n ")
+x0 = float(input("Ingrese el punto inicial \n "))
+x1 = float(input("Ingrese el segundo punto \n "))
+tol = float(input("Ingrese la tolerancia \n "))
+nmax = float(input("Ingrese el numero maximo de iteracciones \n "))
+
+x = sp.Symbol('x')  
 
 def f(x):
-    return np.exp(2 * x) - 2 * (x ** 3) * np.exp(x) + x ** 6 - 0.6
+    return eval(ecuacion)
 
+  
+def dev():
+     return sp.diff(ecuacion,x)
 
 def df(x):
-    return (-2 / x ** 3) - 20 * np.sin(10 * x) * np.cos(10 * x)
+    return eval(dev())
 
 
-x0 = 4
-x1 = 1
-tol = 0.0000001
+
 error = 100
-nmax = 100
 ni = 0
 
 
