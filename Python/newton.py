@@ -2,7 +2,7 @@ import numpy as np
 from math import *
 import sympy as sp
 
-
+# Datos necesarios para la ejecucion
 ecuacion = input("Ingrese la ecuacion \n ")
 x0 = float(input("Ingrese el punto inicial"))
 tol = float(input("Ingrese la tolerancia"))
@@ -12,6 +12,7 @@ tol = float(input("Ingrese la tolerancia"))
 x = sp.Symbol('x')
 
 
+# Funcion a evaluar
 def f(x):
     return eval(ecuacion)
 print(f(1))
