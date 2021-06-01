@@ -6,7 +6,7 @@ import sympy as sp
 ecuacion = input("Ingrese la ecuacion \n ")
 x0 = float(input("Ingrese el punto inicial"))
 tol = float(input("Ingrese la tolerancia"))
-
+nmax = float(input("ingrese el numero maximo de iteracciones")
 
 
 x = sp.Symbol('x')
@@ -25,15 +25,16 @@ def df(x):
 def dev():
      return sp.diff(ecuacion,x)
 
-
+# error y iteracion inicial
 error = 100
-nmax = 100
 ni = 0
 
 
 print("# iter\t\t x \t\t f(x) \t\t error")
 print("{0:d}\t{1:8.6f}\t{2:8.6f}\t{3:8.6f}".format(ni, x0, f(x0), error))
 
+             
+# Ejecucion del programa
 while error > tol and ni < nmax:
     x1 = x0 - (f(x0) / df(x0))
     ni += 1
