@@ -1,6 +1,6 @@
 import numpy as np
 
- ecuacion = input("Ingrese la función a resolver: ")
+ecuacion = input("Ingrese la función a resolver: ")
 aValor = float(input("Ingrese el extremo inferior del intervalo: "))
 bValor = float(input("Ingrese el extremo inferior del intervalo: "))
 tolerancia = float(input("Ingrese la tolerancia del método: "))
