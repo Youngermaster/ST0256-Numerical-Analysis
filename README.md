@@ -1,5 +1,7 @@
 # ST0256-Numerical-Analysis
 
+Check it deployed right here: http://3.226.113.5:3001/#/
+
 The idea of this project is to test out if it is worth it to use `C++` instead of `Python` for
 algorithms of some numeric methods, like finding roots of non-linear equations using
 Newton-Raphson's method.
