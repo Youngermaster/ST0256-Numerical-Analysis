@@ -2,6 +2,11 @@ import numpy as np
 from math import *
 import sympy as sp
 
+# Global variables
+NMAX = 20
+ERROR = 100
+TOLERANCE = 0.00001
+
 
 def newtonRaphson(x0, tol, nmax, error, test, f, df):
     ni = 0
@@ -46,28 +51,20 @@ def df_test_2(x):
 
 if __name__ == "__main__":
     x0 = -20
-    tol = 0.00001
-    nmax = 20
-    error = 100
-    newtonRaphson(x0, tol, nmax, error, False, f_test_1, df_test_1)
+
+    newtonRaphson(x0, TOLERANCE, NMAX, ERROR, False, f_test_1, df_test_1)
 
 
 # Tests
 def test_1():
     x0 = -20
-    tol = 0.00001
-    nmax = 20
-    error = 100
-    assert newtonRaphson(x0, tol, nmax, error, True,
+    assert newtonRaphson(x0, TOLERANCE, NMAX, ERROR, True,
                          f_test_1, df_test_1) == -1.000000000000011
 
 
 def test_2():
     x0 = 2
-    tol = 0.00001
-    nmax = 20
-    error = 100
-    assert newtonRaphson(x0, tol, nmax, error, True,
+    assert newtonRaphson(x0, TOLERANCE, NMAX, ERROR, True,
                          f_test_2, df_test_2) == 1.6005985449336209
 
 
