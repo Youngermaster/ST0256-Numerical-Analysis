@@ -5,17 +5,17 @@
 #define EPSILON 0.00001
 using namespace std;
 
-// The function is x^3 - x^2 + 2
+// La funcion x^3 - x^2 + 2
 double func(double x) {
     return x * x * x - x * x + 2;
 }
 
-// Derivative of the above function which is 3*x^x - 2*x
+// Derivada de la funcion de arriba que es 3*x^x - 2*x
 double derivFunc(double x) {
     return 3 * x * x - 2 * x;
 }
 
-// Function to find the root
+// FFuncion que busca las raices
 void newtonRaphson(double x) {
     printf("# iter\t\t x\t\t\t f(x)\t\t\t error\t\t\t \n");
     int iterations(0);
@@ -36,9 +36,9 @@ void newtonRaphson(double x) {
     cout << "The value of the root is : " << x << endl;
 }
 
-// Driver program to test above
+// Main de la aplicacion
 int main() {
-    double x0 = -20;  // Initial values assumed
+    double x0 = -20;  // Valores iniciales
     newtonRaphson(x0);
     return 0;
 }
