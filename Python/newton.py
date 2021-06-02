@@ -33,7 +33,7 @@ ni = 0
 print("# iter\t\tx\t\t\tf(x)\t\t\terror\t\t\t")
 print("{0:d}\t\t{1:8.6f}\t\t{2:8.6f}\t\t{3:8.6f}".format(ni, x0, f(x0), error))
 
-             
+root_solution = 0
 # Ejecucion del programa
 while error > tol and ni < nmax:
     x1 = x0 - (f(x0) / df(x0))
@@ -41,3 +41,6 @@ while error > tol and ni < nmax:
     error = abs(x1 - x0)
     print("{0:d}\t\t{1:8.6f}\t\t{2:8.4f}\t\t{3:8.6f}".format(ni, x0, x1, error))
     x0 = x1
+    root_solution = x1
+
+print("The value of the root is: ", root_solution)

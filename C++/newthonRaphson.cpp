@@ -30,7 +30,6 @@ void newtonRaphson(double x) {
         x -= h;
         error = abs(x - error);
 
-        // cout << iterations << "\t\t " << x0 << "\t\t " << x << "\t\t " << error << endl;
         printf("%d\t\t %f\t\t %f\t\t %f\t\t \n", iterations, x0, x, error);
         iterations++;
     }
