@@ -2,6 +2,7 @@ import numpy as np
 from math import *
 import sympy as sp
 
+"""
 # Datos necesarios para la ejecucion
 ecuacion = input("Ingrese la ecuacion: ")
 x0 = float(input("Ingrese el punto inicial: "))
@@ -10,7 +11,6 @@ nmax = float(input("ingrese el numero maximo de iteracciones: "))
 
 
 x = sp.Symbol('x')
-
 
 # Funcion a evaluar
 def f(x):
@@ -24,6 +24,20 @@ def df(x):
 # Derivada de la funcion a evaluar
 def dev():
     return sp.diff(ecuacion, x)
+"""
+
+x0 = -20
+tol = 0.00001
+nmax = 20
+
+
+def f(x):
+    return (x**3) - (x**2) + 2
+
+
+def df(x):
+    return (3*x**2) - (2*x)
+
 
 # error e iteracion inicial
 error = 100

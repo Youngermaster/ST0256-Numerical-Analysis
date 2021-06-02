@@ -52,7 +52,7 @@ double Secante(double x1, double x0) {
         // getchar();
 
         if (res != res) {
-            cout << "La función se indetermina: " << '\n';
+            cout << "La función se indeterminada: " << '\n';
             return res;
         }
     } while (abs(error) > ERROR);  // ERROR
