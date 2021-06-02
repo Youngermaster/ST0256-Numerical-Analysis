@@ -3,7 +3,7 @@
 
 #include <cmath>
 #include <iostream>
-#define ERROR 0.000000001
+#define ERROR 0.00001
 
 using namespace std;
 
@@ -48,9 +48,6 @@ double Secante(double x1, double x0) {
         xb = res;
         counter++;
 
-        // cout << res << '\n';
-        // getchar();
-
         if (res != res) {
             cout << "La función se indeterminada: " << '\n';
             return res;
@@ -61,11 +58,11 @@ double Secante(double x1, double x0) {
 }
 
 int main(int argc, char const *argv[]) {
-    double x1, x0;
-    cout << "Dame el primer valor semilla: ";
-    cin >> x1;
-    cout << "Dame el segundo valor semilla: ";
-    cin >> x0;
+    double x1(0), x0(2);
+    // cout << "Dame el primer valor semilla: ";
+    // cin >> x1;
+    // cout << "Dame el segundo valor semilla: ";
+    // cin >> x0;
 
     double raiz = Secante(x1, x0);
     cout << "La raíz es: " << raiz << '\n';
