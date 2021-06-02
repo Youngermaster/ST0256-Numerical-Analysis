@@ -3,13 +3,12 @@ from math import *
 import sympy as sp
 
 
-
-
 def newtonRaphson(x0, tol, nmax, error, test, f, df):
     ni = 0
     if not test:
         print("# iter\t\tx\t\t\tf(x)\t\t\terror\t\t\t")
-        print("{0:d}\t\t{1:8.6f}\t\t{2:8.6f}\t\t{3:8.6f}".format(ni, x0, f(x0), error))
+        print("{0:d}\t\t{1:8.6f}\t\t{2:8.6f}\t\t{3:8.6f}".format(
+            ni, x0, f(x0), error))
 
     root_solution = 0
     # Ejecucion del programa
@@ -18,7 +17,8 @@ def newtonRaphson(x0, tol, nmax, error, test, f, df):
         ni += 1
         error = abs(x1 - x0)
         if not test:
-            print("{0:d}\t\t{1:8.6f}\t\t{2:8.4f}\t\t{3:8.6f}".format(ni, x0, x1, error))
+            print("{0:d}\t\t{1:8.6f}\t\t{2:8.4f}\t\t{3:8.6f}".format(
+                ni, x0, x1, error))
         x0 = x1
         root_solution = x1
 
@@ -26,7 +26,7 @@ def newtonRaphson(x0, tol, nmax, error, test, f, df):
         return root_solution
     else:
         print("The value of the root is: ", root_solution)
-        
+
 
 def f_test_1(x):
     return (x**3) - (x**2) + 2
@@ -34,6 +34,7 @@ def f_test_1(x):
 
 def df_test_1(x):
     return (3*x**2) - (2*x)
+
 
 def f_test_2(x):
     return (2 * x**3) - (2 * x) - 5
@@ -57,14 +58,17 @@ def test_1():
     tol = 0.00001
     nmax = 20
     error = 100
-    assert newtonRaphson(x0, tol, nmax, error, True, f_test_1, df_test_1) == -1.000000000000011
+    assert newtonRaphson(x0, tol, nmax, error, True,
+                         f_test_1, df_test_1) == -1.000000000000011
+
 
 def test_2():
     x0 = 2
     tol = 0.00001
     nmax = 20
     error = 100
-    assert newtonRaphson(x0, tol, nmax, error, True, f_test_2, df_test_2) == 1.6005985449336209
+    assert newtonRaphson(x0, tol, nmax, error, True,
+                         f_test_2, df_test_2) == 1.6005985449336209
 
 
 """
