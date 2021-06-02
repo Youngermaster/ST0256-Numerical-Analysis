@@ -1,6 +1,6 @@
 import numpy as np
 
-
+"""
 # Parametros que se reciben para la ejecucion de los metodos
 ecuacion = input("Ingrese la función a resolver: ")
 aValor = float(input("Ingrese el extremo inferior del intervalo: "))
@@ -16,7 +16,17 @@ op = float(
 # Funcion a evaluar
 def f(x):
     return eval(ecuacion)
+"""
 
+
+aValor = 0
+bValor = 2
+tolerancia = 0.00001
+maximoIteraciones = 100
+op = 1
+
+def f(x):
+    return np.cos(x) - x * (np.exp(x))
 
 # Asignacion de los valores de los intervalos
 a = aValor

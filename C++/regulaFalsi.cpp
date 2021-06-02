@@ -1,5 +1,6 @@
 
 #include <math.h>
+
 #include <iomanip>
 #include <iostream>
 
@@ -8,7 +9,7 @@
  Change this equation to solve another problem.
 */
 
-#define f(x) cos(x) - x * exp(x)
+#define f(x) cos(x) - x* exp(x)
 
 using namespace std;
 
@@ -22,13 +23,17 @@ int main() {
 
 /* Inputs */
 up:
-    cout << "Enter first guess: ";
-    cin >> x0;
-    cout << "Enter second guess: ";
-    cin >> x1;
-    cout << "Enter tolerable error: ";
-    cin >> e;
+    // cout << "Enter first guess: ";
+    // cin >> x0;
+    // cout << "Enter second guess: ";
+    // cin >> x1;
+    // cout << "Enter tolerable error: ";
+    // cin >> e;
 
+    x0 = 0;
+    x1 = 2;
+    e = 0.00001;
+    
     /* Calculating Functional Value */
     f0 = f(x0);
     f1 = f(x1);
