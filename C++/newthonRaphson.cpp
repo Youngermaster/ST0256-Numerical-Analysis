@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#define EPSILON 0.0000001
+#define EPSILON 0.00001
 using namespace std;
 
 // The function is x^3 - x^2 + 2
@@ -17,20 +17,23 @@ double derivFunc(double x) {
 
 // Function to find the root
 void newtonRaphson(double x) {
+    printf("# iter\t\t x\t\t\t f(x)\t\t\t error\t\t\t \n");
     int iterations(0);
-    float error(0);
+    double error(0);
     double h = func(x) / derivFunc(x);
     while (abs(h) >= EPSILON) {
-        h = func(x) / derivFunc(x);
+        error = x;
+        double x0 = x;
 
+        h = func(x) / derivFunc(x);
         // x(i+1) = x(i) - f(x) / f'(x)
-        error += x;
         x -= h;
         error = abs(x - error);
-        cout << "Error: " << error << endl;
+
+        // cout << iterations << "\t\t " << x0 << "\t\t " << x << "\t\t " << error << endl;
+        printf("%d\t\t %f\t\t %f\t\t %f\t\t \n", iterations, x0, x, error);
         iterations++;
     }
-    cout << "Iterations: " << iterations << endl;
     cout << "The value of the root is : " << x << endl;
 }
 
