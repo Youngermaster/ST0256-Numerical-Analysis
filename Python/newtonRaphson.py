@@ -51,7 +51,6 @@ def df_test_2(x):
 
 if __name__ == "__main__":
     x0 = -20
-
     newtonRaphson(x0, TOLERANCE, NMAX, ERROR, False, f_test_1, df_test_1)
 
 
