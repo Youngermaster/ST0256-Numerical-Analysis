@@ -26,11 +26,6 @@ def dev():
     return sp.diff(ecuacion, x)
 """
 
-x0 = -20
-tol = 0.00001
-nmax = 20
-
-
 def f(x):
     return (x**3) - (x**2) + 2
 
@@ -39,22 +34,41 @@ def df(x):
     return (3*x**2) - (2*x)
 
 
-# error e iteracion inicial
-error = 100
-ni = 0
 
+def newtonRaphson(x0, tol, nmax, error, test):
+    ni = 0
+    if not test:
+        print("# iter\t\tx\t\t\tf(x)\t\t\terror\t\t\t")
+        print("{0:d}\t\t{1:8.6f}\t\t{2:8.6f}\t\t{3:8.6f}".format(ni, x0, f(x0), error))
 
-print("# iter\t\tx\t\t\tf(x)\t\t\terror\t\t\t")
-print("{0:d}\t\t{1:8.6f}\t\t{2:8.6f}\t\t{3:8.6f}".format(ni, x0, f(x0), error))
+    root_solution = 0
+    # Ejecucion del programa
+    while error > tol and ni < nmax:
+        x1 = x0 - (f(x0) / df(x0))
+        ni += 1
+        error = abs(x1 - x0)
+        if not test:
+            print("{0:d}\t\t{1:8.6f}\t\t{2:8.4f}\t\t{3:8.6f}".format(ni, x0, x1, error))
+        x0 = x1
+        root_solution = x1
 
-root_solution = 0
-# Ejecucion del programa
-while error > tol and ni < nmax:
-    x1 = x0 - (f(x0) / df(x0))
-    ni += 1
-    error = abs(x1 - x0)
-    print("{0:d}\t\t{1:8.6f}\t\t{2:8.4f}\t\t{3:8.6f}".format(ni, x0, x1, error))
-    x0 = x1
-    root_solution = x1
+    if test:
+        return root_solution
+    else:
+        print("The value of the root is: ", root_solution)
+        
 
-print("The value of the root is: ", root_solution)
+if __name__ == "__main__":
+    x0 = -20
+    tol = 0.00001
+    nmax = 20
+    error = 100
+    newtonRaphson(x0, tol, nmax, error, False)
+
+# Tests
+def test_newton_raphson():
+    x0 = -20
+    tol = 0.00001
+    nmax = 20
+    error = 100
+    assert newtonRaphson(x0, tol, nmax, error, True) == -1.000000000000011
