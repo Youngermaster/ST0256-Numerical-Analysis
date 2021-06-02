@@ -2,6 +2,7 @@ import numpy as np
 from math import *
 
 
+"""
 # Entradas
 ecuacion = input("Ingrese la ecuacion \n")
 p0 = float(input("Ingrese el punto inicial \n"))
@@ -12,6 +13,17 @@ iteri = 0
 
 def g(x):
     return eval(ecuacion)
+
+"""
+
+p0 = 0
+tol = 0.00001
+nmax = 100
+iteri = 0
+
+
+def g(x):
+    return (2 - (np.exp(x)) + x**2) / 3
 
 
 # Ejecucion
