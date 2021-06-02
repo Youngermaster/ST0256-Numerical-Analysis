@@ -1,7 +1,7 @@
 import numpy as np
 from math import *
 
-
+"""
 ecuacion = input("Ingrese la función a resolver: ")
 aValor = float(input("Ingrese el extremo inferior del intervalo: "))
 bValor = float(input("Ingrese el extremo superior del intervalo: "))
@@ -12,10 +12,21 @@ op = float(
         "Escoga el criterio de aproximacion 1 = |f(x)| \t  2 = |xn- xn-1|  \t 3 = |xn - xn-1|/xn \n"
     )
 )
+"""
+
+aValor = 0
+bValor = 2
+tolerancia = 0.00005
+maximoIteraciones = 100
+op = 1
+"""
+def f(x):
+    return eval(ecuacion)
+"""
 
 
 def f(x):
-    return eval(ecuacion)
+    return (3 * x**3) - (2 * x) - 5
 
 
 a = aValor
@@ -70,7 +81,7 @@ while error > tolerancia and niter < maximoIteraciones:
     )
 
 print(
-    "La raiz de la funcion dada en el intervalo [{0:6.4f},{1:6.4f}] es {2:6.4f}".format(
+    "La raiz de la funcion dada en el intervalo [{0:6.4f}, {1:6.4f}] es {2:6.4f}".format(
         a, b, m
     )
 )

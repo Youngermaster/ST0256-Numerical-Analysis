@@ -3,7 +3,7 @@
 
 using namespace std;
 
-/*para encontrar una raiz de la ecuación f(x)=0 analiticamente, proporcionar la funcion
+/*para eniterationrar una raiz de la ecuación f(x)=0 analiticamente, proporcionar la funcion
 F(X)
 DATOS:
 -->a Y b que forman un intervalo, en donde se halla una raiz
@@ -20,10 +20,11 @@ double F(double x) {
 }
 
 double bisection(double a, double b, int MAXIT, double TOL, double EX) {
-    int cont = 1;
+    printf("# iter\t\t x\t\t\t f(x)\t\t\t error\t\t\t \n");
+    int iteration = 1;
     double c;
     double fc;
-    while (cont < MAXIT) {
+    while (iteration < MAXIT) {
         c = (a + b) / 2;
         fc = F(c);
         if (abs(b - a) < TOL)
@@ -34,12 +35,16 @@ double bisection(double a, double b, int MAXIT, double TOL, double EX) {
             b = c;
         if (fc * F(b) < 0)
             a = c;
-        cont = cont + 1;
+
+        printf("%d\t\t\n", iteration);
+        iteration++;
     }
     return c;
 }
 
 int main(int argc, char *argv[]) {
-    cout << bisection(0, 2, 100, 0.0005, 0.00005);
+    double result = bisection(0, 2, 100, 0.0005, 0.00005);
+    cout << "La raiz de la funcion dada en el intervalo [0, 2] es: "
+         << result << endl;
     return 0;
 }
