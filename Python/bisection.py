@@ -3,7 +3,6 @@ from math import *
 
 # Global variables
 NMAX = 100
-ERROR = 100
 TOLERANCE = 0.00001
 OP = 1
 
@@ -18,49 +17,50 @@ def fe(a, b, op, f):
         return abs(b - a) / b
 
 
-def bisection(aValor, bValor, tolerancia, maximoIteraciones, error, test, f):
-    a = aValor
-    b = bValor
+def bisection(lower_end, upper_end,  test, f):
+    a = lower_end
+    b = upper_end
     niter = 0
-    m = aValor + (bValor - aValor) / 2
+    m = lower_end + (upper_end - lower_end) / 2
 
-    fa = f(aValor)
-    fb = f(bValor)
+    fa = f(lower_end)
+    fb = f(upper_end)
     fm = f(m)
+    ERROR = 100
     if not test:
-        print("# iter\t\t a \t\t f(a) \t\t b \t\t f(b) \t\t m \t\t f(m)  \t\t error")
+        print("# iter\t\t a \t\t f(a) \t\t b \t\t f(b) \t\t m \t\t f(m)  \t\t ERROR")
         print(
             "{0} \t\t {1:6.4f} \t {2:6.4f} \t {3:6.4f} \t {4:6.4f} \t {5:6.4f} \t {6:6.4f} \t {7:6.9f}".format(
-                niter, aValor, fa, bValor, fb, m, fm, error
+                niter, lower_end, fa, upper_end, fb, m, fm, ERROR
             )
         )
 
-    while error > tolerancia and niter < maximoIteraciones:
-        m = aValor + (bValor - aValor) / 2
+    while ERROR > TOLERANCE and niter < NMAX:
+        m = lower_end + (upper_end - lower_end) / 2
         if np.sign(fa) == np.sign(fm):
-            aValor = m
-            fa = f(aValor)
+            lower_end = m
+            fa = f(lower_end)
         else:
-            bValor = m
-            fb = f(bValor)
-        m = aValor + (bValor - aValor) / 2
+            upper_end = m
+            fb = f(upper_end)
+        m = lower_end + (upper_end - lower_end) / 2
         fm = f(m)
-        error = fe(aValor, bValor, OP, f)
+        ERROR = fe(lower_end, upper_end, OP, f)
 
         niter += 1
         if not test:
             print(
                 "{0} \t\t {1:6.4f} \t {2:6.4f} \t {3:6.4f} \t {4:6.4f} \t {5:6.4f} \t {6:6.4f} \t {7:6.9f}".format(
-                    niter, aValor, fa, bValor, fb, m, fm, error
+                    niter, lower_end, fa, upper_end, fb, m, fm, ERROR
                 )
             )
     if not test:
         print(
-            "La raiz de la funcion dada en el intervalo [{0:6.4f}, {1:6.4f}] es {2:6.4f}".format(
+            "The root of the function between [{0:6.4f}, {1:6.4f}] is: {2:6.4f}".format(
                 a, b, m
             )
         )
-        print("el error es: {0:6.8f}".format(error))
+        print("The estimated ERROR is: {0:6.8f}".format(ERROR))
     else:
         return m
 
@@ -70,26 +70,25 @@ def f_test_1(x):
 
 
 if __name__ == "__main__":
-    aValor = 0
-    bValor = 2
-    bisection(aValor, bValor, TOLERANCE, NMAX, ERROR,
-              False, f_test_1)
+    lower_end = 0
+    upper_end = 2
+    bisection(lower_end, upper_end, False, f_test_1)
 
 
 # Tests
 def test_1():
-    aValor = 0
-    bValor = 2
-    assert bisection(aValor, bValor, TOLERANCE, NMAX, ERROR,
-              True, f_test_1) == 1.371739387512207
+    lower_end = 0
+    upper_end = 2
+    assert bisection(lower_end, upper_end,
+                     True, f_test_1) == 1.3717398643493652
 
 
 """
 ecuacion = input("Ingrese la función a resolver: ")
-aValor = float(input("Ingrese el extremo inferior del intervalo: "))
-bValor = float(input("Ingrese el extremo superior del intervalo: "))
-tolerancia = float(input("Ingrese la tolerancia del método: "))
-maximoIteraciones = int(input("Ingrese el máximo de iteraciones a realizar: "))
+lower_end = float(input("Ingrese el extremo inferior del intervalo: "))
+upper_end = float(input("Ingrese el extremo superior del intervalo: "))
+TOLERANCE = float(input("Ingrese la TOLERANCE del método: "))
+NMAX = int(input("Ingrese el máximo de iteraciones a realizar: "))
 op = float(
     input(
         "Escoga el criterio de aproximacion 1 = |f(x)| \t  2 = |xn- xn-1|  \t 3 = |xn - xn-1|/xn \n"

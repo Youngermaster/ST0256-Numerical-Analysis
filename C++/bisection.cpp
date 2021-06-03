@@ -3,48 +3,53 @@
 
 using namespace std;
 
-/*para eniterationrar una raiz de la ecuación f(x)=0 analiticamente, proporcionar la funcion
-F(X)
-DATOS:
--->a Y b que forman un intervalo, en donde se halla una raiz
--->TOL criterio de convergencia//la tolerancia
--->EX criterio de exactitud
--->MAXIT número maximo de iteraciones
-RESULTADOS:
--->X la raiz aproximada o mensaje de falla
-*/
+// Global variables
+#define NMAX 100
+#define TOLERANCE 0.00001
+#define EXACTITUDEC 0.00005
 
+// Actual Function to use
 double F(double x) {
-    // 3*x^3-2*x-5->función tomado como referencia
     return 3 * pow(x, 3) - 2 * x - 5;
 }
 
-double bisection(double a, double b, int MAXIT, double TOL, double EX) {
-    printf("# iter\t\t x\t\t\t f(x)\t\t\t error\t\t\t \n");
+/*
+* Bisection method 
+* a -> lower end
+* b -> upper end
+* MAXIT -> maximum number of iterations of the algorithm
+* TOL -> tolerance of the program to the error
+* EX -> exactitude criteria
+*/
+double bisection(double a, double b, bool test) {
+    if (!test)
+        printf("# iter\t\t x\t\t\t f(x)\t\t\t error\t\t\t \n");
     int iteration = 1;
     double c;
     double fc;
-    while (iteration < MAXIT) {
+    while (iteration < NMAX) {
         c = (a + b) / 2;
         fc = F(c);
-        if (abs(b - a) < TOL)
+        if (abs(b - a) < TOLERANCE)
             return c;
-        if (abs(fc) < EX)
+        if (abs(fc) < EXACTITUDEC)
             return c;
         if (F(a) * fc < 0)
             b = c;
         if (fc * F(b) < 0)
             a = c;
 
-        printf("%d\t\t\n", iteration);
+        if (!test)
+            printf("%d\t\t\n", iteration);
         iteration++;
     }
     return c;
 }
 
 int main(int argc, char *argv[]) {
-    double result = bisection(0, 2, 100, 0.0005, 0.00005);
-    cout << "La raiz de la funcion dada en el intervalo [0, 2] es: "
-         << result << endl;
+    double lowerEnd = 0;
+    double upperEnd = 2;
+    double result = bisection(lowerEnd, upperEnd, true);
+    printf("The root of the function between [%f, %f] is: %f", lowerEnd, upperEnd, result);
     return 0;
 }
