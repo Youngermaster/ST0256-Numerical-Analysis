@@ -2,7 +2,11 @@
 #include <stdio.h>
 
 #include <cstdlib>
+// Global variables
 #define e 2.718281828
+#define NMAX 100
+#define TOLERANCE 0.00001
+#define EXACTITUDEC 0.00005
 
 double fun(double);
 
