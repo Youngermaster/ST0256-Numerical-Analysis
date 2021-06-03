@@ -1,5 +1,8 @@
 # ST0256-Numerical-Analysis
 
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+
+
 Check it deployed right here: http://3.226.113.5:3001/#/
 
 The idea of this project is to test out if it is worth it to use `C++` instead of `Python` for
