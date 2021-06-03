@@ -22,7 +22,7 @@ svalenciaa@eafit.edu.co}
 \and
 \IEEEauthorblockN{2\textsuperscript{nd} Juan Manuel Young Hoyos}
 \IEEEauthorblockA{\textit{dept. of science} \\
-\textit{EAFIT (of Aff.)}\\
+\textit{EAFIT}\\
 Medellín, Colombia \\
 jmyoungh@eafit.edu.co}
 }
@@ -44,7 +44,7 @@ Why this project? the aim of this project is to be able to analyze and draw a co
 the question, is it worth spending more time programming in C ++? Or is it more profitable to do 
 this type of algorithms using Python and its libraries in terms of development time and program performance?
 
-\section{Objetives}
+\section{Objectives}
 In this project we seek to compare the efficiency of developing root search methods in python against c++, taking into account the comparison between these two languages for this we looked for the implementation of these algorithms in both languages for further analysis taking into account the speed and memory consumption of these algorithms in each of the languages.
 
 \section{Theoretical framework}
@@ -128,9 +128,9 @@ Algorithm:
 
 \
 
-\subsection{Regula fasi}
+\subsection{Regula falsi}
 
-The false position or Regula Fasi method is a bracketed method for finding a numerical solution to an equation of the form $ f(x = 0 $ within a given interval $ [a, b] $ .
+The false position or Regula Falsi method is a bracketed method for finding a numerical solution to an equation of the form $ f(x = 0 $ within a given interval $ [a, b] $ .
 solution of an equation of the form $ f(x) = 0 $ within a given interval $ [a, b] $ .
 
 In that interval, the equation of a straight line joining $ a$ and $ b $ is:
@@ -343,7 +343,7 @@ The algorithms explained above were developed in python and c++, and will be tes
 \section{Procedures}
 
 
-For the execution of the methods we looked for different functions that allow the comparison of these methods for this we will run each of the methods with the corresponding functions, and we will use the linux time tool that allows us to measure how long it takes to run our program.
+For the execution of the methods we looked for different functions that allow the comparison of these methods for this we will run each of the methods with the corresponding functions, and we will use the \textit{linux time} tool that allows us to measure how long it takes to run our programs.
 
 \
 
@@ -369,7 +369,7 @@ As you can see the execution time of a program, in this case the real time is th
 
 \subsection{Bisection}
 
-For the execution in both python and c++ the following parameters will be configured
+For the execution in both python and c++ the following parameters will be configured:
 
 \
 
@@ -387,7 +387,7 @@ Maximum number of iterations: \(20\)
 
 \subsection{Regula falsi}
 
-For the execution in both python and c++ the following parameters will be configured
+For the execution in both python and c++ the following parameters will be configured:
 
 \
 
@@ -404,7 +404,7 @@ Maximum number of iterations: \(20\)
 
 \subsection{Fixed point}
 
-For the execution in both python and c++ the following parameters will be configured
+For the execution in both python and c++ the following parameters will be configured:
 
 \
 
@@ -419,7 +419,7 @@ Maximum number of iterations: \(20\)
 
 \subsection{Newton Rapshon}
 
-For the execution in both python and c++ the following parameters will be configured
+For the execution in both python and c++ the following parameters will be configured:
 
 \
 
@@ -435,7 +435,7 @@ Maximum number of iterations: \(20\)
 
 \subsection{Secant}
 
-For the execution in both python and c++ the following parameters will be configured
+For the execution in both python and c++ the following parameters will be configured:
 
 \ 
 
@@ -488,7 +488,7 @@ For the function, the method was run 10 times to observe the different changes i
 7          & 0.209                       & \multicolumn{1}{l|}{0.016} \\ \hline
 8          & 0.204                       & \multicolumn{1}{l|}{0.023} \\ \hline
 9          & \multicolumn{1}{c|}{0.207}  & \multicolumn{1}{c|}{0.022} \\ \hline
-10         & \multicolumn{1}{c|}{0.205}  & \multicolumn{1}{c|}{0.23}  \\ \hline
+10         & \multicolumn{1}{c|}{0.205}  & \multicolumn{1}{c|}{0.023}  \\ \hline
 \end{tabular}
 
 
@@ -497,7 +497,7 @@ For the function, the method was run 10 times to observe the different changes i
 \ 
 
 
-From this, the average of these 10 executions is kept looking for the average execution time of the method, finding that the method executed with c++ is 10 times more efficient than the one made in python.
+From this, the average of these 10 executions is kept looking for the average execution time of the method, finding that the method executed with c++ is around 10 times more efficient than the one made in python.
 
 \
 
@@ -543,7 +543,7 @@ For the function, the method was run 10 times to observe the different changes i
 
 
 
-From this, the average of these 10 executions is kept looking for the average execution time of the method, finding that the method executed with c++ is 10 times more efficient than the one made in python.
+From this, the average of these 10 executions is kept looking for the average execution time of the method, finding that the method executed with c++ is around 5 times more efficient than the one made in python.
 
 \
 
@@ -579,14 +579,14 @@ For the function, the method was run 10 times to observe the different changes i
 7          & 0.209                       & \multicolumn{1}{l|}{0.016} \\ \hline
 8          & 0.204                       & \multicolumn{1}{l|}{0.023} \\ \hline
 9          & \multicolumn{1}{c|}{0.207}  & \multicolumn{1}{c|}{0.022} \\ \hline
-10         & \multicolumn{1}{c|}{0.205}  & \multicolumn{1}{c|}{0.23}  \\ \hline
+10         & \multicolumn{1}{c|}{0.205}  & \multicolumn{1}{c|}{0.023}  \\ \hline
 \end{tabular}
 
 
 \
 
 
-From this, the average of these 10 executions is kept looking for the average execution time of the method, finding that the method executed with c++ is 10 times more efficient than the one made in python.
+From this, the average of these 10 executions is kept looking for the average execution time of the method, finding that the method executed with c++ is around 10 times more efficient than the one made in python.
 
 \
 
@@ -627,7 +627,7 @@ For the function, the method was run 10 times to observe the different changes i
 \
 
 
-From this we take the average of these 10 executions looking for the average execution time of the method, finding that the method executed with c++ is more or less 20 to 30 times more efficient.
+From this we take the average of these 10 executions looking for the average execution time of the method, finding that the method executed with c++ is more or less 20 to 32 times more efficient than Python.
 
 
 \
