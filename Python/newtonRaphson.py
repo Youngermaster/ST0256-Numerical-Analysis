@@ -3,7 +3,7 @@ from math import *
 import sympy as sp
 
 # Global variables
-NMAX = 20
+NMAX = 100
 ERROR = 100
 TOLERANCE = 0.00001
 

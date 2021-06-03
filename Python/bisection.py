@@ -2,7 +2,7 @@ import numpy as np
 from math import *
 
 # Global variables
-NMAX = 20
+NMAX = 100
 ERROR = 100
 TOLERANCE = 0.00001
 OP = 1
