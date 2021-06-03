@@ -1,6 +1,7 @@
 # ST0256-Numerical-Analysis
 
 ![example workflow](https://github.com/Youngermaster/ST0256-Numerical-Analysis/blob/main/.github/workflows/python-app.yml/badge.svg)
+![Build workflow](https://github.com/Youngermaster/ST0256-Numerical-Analysis/actions/workflows/python-app.yml/badge.svg)
 
 
 Check it deployed right here: http://3.226.113.5:3001/#/
