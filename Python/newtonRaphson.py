@@ -49,6 +49,14 @@ def df_test_2(x):
     return (6 * x**2) - 2
 
 
+def f_test_3(x):
+    return x - np.cos(x)
+
+
+def df_test_3(x):
+    return 1 + np.sin(x)
+
+
 if __name__ == "__main__":
     x0 = -20
     newtonRaphson(x0, ERROR, False, f_test_1, df_test_1)
@@ -65,3 +73,9 @@ def test_2():
     x0 = 2
     assert newtonRaphson(x0, ERROR, True,
                          f_test_2, df_test_2) == 1.6005985449336209
+
+
+def test_3():
+    x0 = 0
+    assert newtonRaphson(x0, ERROR, True, f_test_3,
+                         df_test_3) == 0.7390851332151607
