@@ -23,17 +23,11 @@ int main() {
 
 /* Inputs */
 up:
-    // cout << "Enter first guess: ";
-    // cin >> x0;
-    // cout << "Enter second guess: ";
-    // cin >> x1;
-    // cout << "Enter tolerable error: ";
-    // cin >> e;
 
     x0 = 0;
     x1 = 2;
     e = 0.00001;
-    
+
     /* Calculating Functional Value */
     f0 = f(x0);
     f1 = f(x1);

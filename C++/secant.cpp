@@ -8,19 +8,18 @@
 using namespace std;
 
 double calculaError(int t, double vant, double vact) {
-    // INPUT: tipo de Error, Valor Anterior, Valor Actual
     double err = 0.0;
     switch (t) {
         case 0:
-            // Error Absoluto
+            // Absolut error
             err = vant - vact;
             break;
         case 1:
-            // Error relativo
+            // Relative error
             err = (vant - vact) / vant;
             break;
         case 2:
-            // Error porcentual
+            // Porcentual Error
             err = ((vant - vact) / vant) * 100;
             break;
     }
@@ -28,9 +27,6 @@ double calculaError(int t, double vant, double vact) {
 }
 
 double f(double x) {
-    // esta función cambia según la función dada.
-    // return log(x);
-    // return (x*x);
     return (pow(x, 3)) + 1;
 }
 
@@ -43,7 +39,7 @@ double Secante(double x1, double x0) {
     counter = 0;
     do {
         res = xa - ((f(xa) * (xb - xa)) / (f(xb) - f(xa)));
-        error = calculaError(1, xa, res);  // Cambiar primer imput según el error que quiero Calcular
+        error = calculaError(1, xa, res);
         xa = xb;
         xb = res;
         counter++;
@@ -59,10 +55,6 @@ double Secante(double x1, double x0) {
 
 int main(int argc, char const *argv[]) {
     double x1(0), x0(2);
-    // cout << "Dame el primer valor semilla: ";
-    // cin >> x1;
-    // cout << "Dame el segundo valor semilla: ";
-    // cin >> x0;
 
     double raiz = Secante(x1, x0);
     cout << "La raíz es: " << raiz << '\n';
