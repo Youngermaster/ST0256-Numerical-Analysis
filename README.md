@@ -3,12 +3,17 @@
 ![Build workflow](https://github.com/Youngermaster/ST0256-Numerical-Analysis/actions/workflows/python-app.yml/badge.svg)
 
 
-Check it deployed right here: http://3.226.113.5:3001/#/
-
 The idea of this project is to test out if it is worth it to use `C++` instead of `Python` for
 algorithms of some numeric methods, like finding roots of non-linear equations using
 Newton-Raphson's method.
 
+Here is the link from the other part of the complete project:
+
+| [Root equations web](https://github.com/svalenciaaq/RaicesDeEcuacionesWeb) |
+| ------------- |
+| <img src="GitHubAssets/WebProject.png" height="300"> |
+
+### Check it out deployed right here: http://3.226.113.5:3001/#/
 ## Introduction
 
 Why this project? the aim of this project is to be able to analyze and draw a conclusion to the 
