@@ -8,7 +8,7 @@ ERROR = 100
 TOLERANCE = 0.00001
 
 
-def newtonRaphson(x0, tol, nmax, error, test, f, df):
+def newtonRaphson(x0,  error, test, f, df):
     ni = 0
     if not test:
         print("# iter\t\tx\t\t\tf(x)\t\t\terror\t\t\t")
@@ -17,7 +17,7 @@ def newtonRaphson(x0, tol, nmax, error, test, f, df):
 
     root_solution = 0
     # Ejecucion del programa
-    while error > tol and ni < nmax:
+    while error > TOLERANCE and ni < NMAX:
         x1 = x0 - (f(x0) / df(x0))
         ni += 1
         error = abs(x1 - x0)
@@ -51,42 +51,17 @@ def df_test_2(x):
 
 if __name__ == "__main__":
     x0 = -20
-    newtonRaphson(x0, TOLERANCE, NMAX, ERROR, False, f_test_1, df_test_1)
+    newtonRaphson(x0, ERROR, False, f_test_1, df_test_1)
 
 
 # Tests
 def test_1():
     x0 = -20
-    assert newtonRaphson(x0, TOLERANCE, NMAX, ERROR, True,
+    assert newtonRaphson(x0, ERROR, True,
                          f_test_1, df_test_1) == -1.000000000000011
 
 
 def test_2():
     x0 = 2
-    assert newtonRaphson(x0, TOLERANCE, NMAX, ERROR, True,
+    assert newtonRaphson(x0, ERROR, True,
                          f_test_2, df_test_2) == 1.6005985449336209
-
-
-"""
-# Datos necesarios para la ejecucion
-ecuacion = input("Ingrese la ecuacion: ")
-x0 = float(input("Ingrese el punto inicial: "))
-tol = float(input("Ingrese la tolerancia: "))
-nmax = float(input("ingrese el numero maximo de iteracciones: "))
-
-
-x = sp.Symbol('x')
-
-# Funcion a evaluar
-def f(x):
-    return eval(ecuacion)
-
-
-# Evaluacionde la derivada de la funcion
-def df(x):
-    return eval(str(dev()))
-
-# Derivada de la funcion a evaluar
-def dev():
-    return sp.diff(ecuacion, x)
-"""

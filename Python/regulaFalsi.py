@@ -7,7 +7,7 @@ TOLERANCE = 0.00001
 OP = 1
 
 
-# Funcion que se encarga de escoger el criterio de aproximacion
+# This Function is in charge of choosing the approximation criterion
 def fe(a, b, op, f):
     if op == 1:
         return abs(f(a))
@@ -18,54 +18,54 @@ def fe(a, b, op, f):
         return abs(b - a) / b
 
 
-def regula_falsi(aValor, bValor, tolerancia, maximoIteraciones, error, f, test):
-    # Asignacion de los valores de los intervalos
-    a = aValor
-    b = bValor
+def regula_falsi(lower_end, upper_end, error, f, test):
+    # Assignment of interval values
+    a = lower_end
+    b = upper_end
 
-    # Error y numero inicial de iteraciones
+    # Error and initial number of iterations
     error = 100
     niter = 0
 
-    # Evaluacion de las funciones en los extremos de los intervalos
-    fa = f(aValor)
-    fb = f(bValor)
+    # Evaluation of the functions at the ends of the intervals
+    fa = f(lower_end)
+    fb = f(upper_end)
 
-    # Valor medio
-    m = aValor - fa * (bValor - aValor) / (fb - fa)
+    # Middle value
+    m = lower_end - fa * (upper_end - lower_end) / (fb - fa)
 
-    # Valor de la funcion evaluado en el punto medio
+    # Value of the function evaluated at the middle value
     fm = f(m)
     if not test:
         print("# iter\t\t a \t\t f(a) \t\t b \t\t f(b) \t\t m \t\t f(m)  \t\t error")
         print(
             "{0} \t\t {1:6.4f} \t {2:6.4f} \t {3:6.4f} \t {4:6.4f} \t {5:6.4f} \t {6:6.4f} \t {7:6.4f}".format(
-                niter, aValor, fa, bValor, fb, m, fm, error
+                niter, lower_end, fa, upper_end, fb, m, fm, error
             )
         )
 
-    # Ciclo que se encarga de ejecutar las iteraccione
-    while error > tolerancia and niter < maximoIteraciones:
-        m = aValor - fa * (bValor - aValor) / (fb - fa)
+    # Cycle in charge of executing the iterations
+    while error > TOLERANCE and niter < NMAX:
+        m = lower_end - fa * (upper_end - lower_end) / (fb - fa)
         if np.sign(fa) == np.sign(fm):
-            aValor = m
-            fa = f(aValor)
+            lower_end = m
+            fa = f(lower_end)
         else:
-            bValor = m
-            fb = f(bValor)
-        m = aValor - fa * (bValor - aValor) / (fb - fa)
+            upper_end = m
+            fb = f(upper_end)
+        m = lower_end - fa * (upper_end - lower_end) / (fb - fa)
         fm = f(m)
-        error = fe(aValor, bValor, OP, f)
+        error = fe(lower_end, upper_end, OP, f)
         niter += 1
         if not test:
             print(
                 "{0} \t\t {1:6.4f} \t {2:6.4f} \t {3:6.4f} \t {4:6.4f} \t {5:6.4f} \t {6:6.4f} \t {7:6.4f}".format(
-                    niter, aValor, fa, bValor, fb, m, fm, error
+                    niter, lower_end, fa, upper_end, fb, m, fm, error
                 )
             )
     if not test:
         print(
-            "La raiz de la funcion dada en el intervalo [{0:6.4f},{1:6.4f}] es {2:6.6f}".format(
+            "The root of the function between [{0:6.4f},{1:6.4f}] is: {2:6.6f}".format(
                 a, b, m
             )
         )
@@ -78,33 +78,14 @@ def f_test_1(x):
 
 
 if __name__ == "__main__":
-    aValor = 0
-    bValor = 2
-    regula_falsi(aValor, bValor, TOLERANCE, NMAX, ERROR, f_test_1, False)
+    lower_end = 0
+    upper_end = 2
+    regula_falsi(lower_end, upper_end, ERROR, f_test_1, False)
 
 
 # Tests
 def test_1():
-    aValor = 0
-    bValor = 2
-    assert regula_falsi(aValor, bValor, TOLERANCE, NMAX,
-                        ERROR, f_test_1, True) == 0.5177551702890896
-
-
-"""
-# Parametros que se reciben para la ejecucion de los metodos
-ecuacion = input("Ingrese la función a resolver: ")
-aValor = float(input("Ingrese el extremo inferior del intervalo: "))
-bValor = float(input("Ingrese el extremo inferior del intervalo: "))
-tolerancia = float(input("Ingrese la tolerancia del método: "))
-maximoIteraciones = int(input("Ingrese el máximo de iteraciones a realizar: "))
-op = float(
-    input(
-        "Escoga el criterio de aproximacion 1 = |f(x)| \t  2 = |xn- xn-1  \t 3 = |xn - xn-1|/xn \n"
-    )
-)
-
-# Funcion a evaluar
-def f(x):
-    return eval(ecuacion)
-"""
+    lower_end = 0
+    upper_end = 2
+    assert regula_falsi(lower_end, upper_end, ERROR,
+                        f_test_1, True) == 0.5177551702890896

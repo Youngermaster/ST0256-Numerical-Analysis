@@ -81,20 +81,3 @@ def test_1():
     upper_end = 2
     assert bisection(lower_end, upper_end,
                      True, f_test_1) == 1.3717398643493652
-
-
-"""
-ecuacion = input("Ingrese la función a resolver: ")
-lower_end = float(input("Ingrese el extremo inferior del intervalo: "))
-upper_end = float(input("Ingrese el extremo superior del intervalo: "))
-TOLERANCE = float(input("Ingrese la TOLERANCE del método: "))
-NMAX = int(input("Ingrese el máximo de iteraciones a realizar: "))
-op = float(
-    input(
-        "Escoga el criterio de aproximacion 1 = |f(x)| \t  2 = |xn- xn-1|  \t 3 = |xn - xn-1|/xn \n"
-    )
-)
-
-def f(x):
-    return eval(ecuacion)
-"""

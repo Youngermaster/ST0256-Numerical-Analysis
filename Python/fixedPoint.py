@@ -44,18 +44,3 @@ if __name__ == "__main__":
 def test_1():
     p0 = 0
     assert fixedPoint(p0, g_test_1, True) == 0.25753180626753985
-
-
-"""
-# Entradas
-ecuacion = input("Ingrese la ecuacion \n")
-p0 = float(input("Ingrese el punto inicial \n"))
-TOLERANCE = float(input("ingrese la tolerecia \n"))
-NMAX = float(input("Ingrese el numero maximo de iteracciones \n"))
-iteri = 0
-
-
-def g(x):
-    return eval(ecuacion)
-
-"""

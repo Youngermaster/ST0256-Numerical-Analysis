@@ -24,7 +24,7 @@ def secant(x0, x1, tol, nmax, error, f, test):
         x1 = x2
 
     if not test:
-        print("La raiz es: ", x1)
+        print("The root is: ", x1)
     else:
         return x1
 
@@ -43,29 +43,5 @@ if __name__ == "__main__":
 def test_1():
     x0 = 0
     x1 = 2
-    assert secant(x0, x1, TOLERANCE, NMAX, ERROR, f_test_1, True) == -0.9999999997553128
-
-
-"""
-# Parametros que se reciben para la ejecucion
-ecuacion = input("Ingrese la ecuacion \n ")
-x0 = float(input("Ingrese el punto inicial \n "))
-x1 = float(input("Ingrese el segundo punto \n "))
-tol = float(input("Ingrese la tolerancia \n "))
-nmax = float(input("Ingrese el numero maximo de iteracciones \n "))
-
-x = sp.Symbol('x')
-
-# Funcion que se va evaluar
-def f(x):
-    return eval(ecuacion)
-
-
-# Derivada de la funcion a evaluar
-def dev():
-    return sp.diff(ecuacion, x)
-
-# Funcion que evalua la derivda de la funcion
-def df(x):
-    return eval(dev())
-"""
+    assert secant(x0, x1, TOLERANCE, NMAX, ERROR,
+                  f_test_1, True) == -0.9999999997553128
